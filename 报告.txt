@@ -1,0 +1,29 @@
+> set.seed(1234)
+> N = 15
+> X = round(rnorm(N, 10, 5), 4) #* 10000
+> Y = round(rnorm(N, 15, 5), 4) #* 10000
+> t.test(X, Y)
+
+	Welch Two Sample t-test
+
+data:  X and Y
+t = -3.2271, df = 27.974, p-value = 0.003181
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -8.842042 -1.975425
+sample estimates:
+mean of x mean of y 
+ 8.313507 13.722240 
+
+> EEPT(X, Y)
+[1]    146377 155117520
+> EEEPT(X, Y)
+[1] 146377 197122
+> #system.time()
+> #system.time(EPT(X, Y))
+> system.time(EEPT(X, Y))
+   用户    系统    流逝 
+4298.07    1.36 4301.24 
+> system.time(EEEPT(X, Y))
+用户 系统 流逝 
+7.62 0.00 7.62 
